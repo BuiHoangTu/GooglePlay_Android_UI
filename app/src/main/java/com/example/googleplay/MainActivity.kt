@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             val restName = sender.lowercase().subSequence(delimiter + 1, sender.length)
 
             val avatar = this.resources.getIdentifier(
-                "user_${firstName}_${restName}",
+                "user_${firstName}_${restName}_playstore",
                 "drawable",
                 this.packageName
             )
@@ -50,15 +50,15 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        val sections = ArrayList<RecyclerView>();
+        val sections = ArrayList<List<AppInStore>>();
 
         // some views
         repeat(20) {
-            val recyclerView1 : RecyclerView = findViewById(R.id.sector_view)
-            recyclerView1.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-            recyclerView1.adapter = AppAdapter(applicationContext, apps);
+//            val recyclerView1 : RecyclerView = findViewById(R.id.sector_view)
+//            recyclerView1.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+//            recyclerView1.adapter = AppAdapter(applicationContext, apps);
 
-            sections.add(recyclerView1);
+            sections.add(apps);
         }
 
         // outer view

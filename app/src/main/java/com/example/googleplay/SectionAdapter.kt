@@ -3,11 +3,12 @@ package com.example.googleplay
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class SectionAdapter(
     private val context: Context,
-    private val sections: List<RecyclerView>
+    private val sections: List<List<AppInStore>>
 ): RecyclerView.Adapter<SectionViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SectionViewHolder {
@@ -21,6 +22,8 @@ class SectionAdapter(
     }
 
     override fun onBindViewHolder(holder: SectionViewHolder, position: Int) {
-        holder.sectionView = sections[position].findViewById(R.id.sector_view)
+        val sectionView = holder.sectionView.findViewById<RecyclerView>(R.id.sector_view)
+        sectionView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        sectionView.adapter = AppAdapter(context, sections[position])
     }
 }
