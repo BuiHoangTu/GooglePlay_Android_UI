@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        val sections = ArrayList<List<AppInStore>>();
+        val sections = ArrayList<Section>();
 
         // some views
         repeat(20) {
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 //            recyclerView1.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 //            recyclerView1.adapter = AppAdapter(applicationContext, apps);
 
-            sections.add(apps);
+            sections.add(Section(apps));
         }
 
         // outer view

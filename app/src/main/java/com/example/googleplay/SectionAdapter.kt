@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class SectionAdapter(
     private val context: Context,
-    private val sections: List<List<AppInStore>>
+    private val sections: List<Section>
 ): RecyclerView.Adapter<SectionViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SectionViewHolder {
@@ -24,6 +24,6 @@ class SectionAdapter(
     override fun onBindViewHolder(holder: SectionViewHolder, position: Int) {
         val sectionView = holder.sectionView.findViewById<RecyclerView>(R.id.sector_view)
         sectionView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        sectionView.adapter = AppAdapter(context, sections[position])
+        sectionView.adapter = AppAdapter(context, sections[position].appsInSection)
     }
 }
